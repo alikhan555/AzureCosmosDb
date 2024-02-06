@@ -32,4 +32,10 @@ SqlApiHandler<EmployeeModel> sqlApiHandler = new SqlApiHandler<EmployeeModel>(co
 //employee.Name = "Muhammad Ali UPDATED";
 //await sqlApiHandler.UpdateItemAsync("HR", "Employees", employee.id, employee.Designation, employee);
 
+//dynamic[] parameters = new dynamic[1] {
+//    new  { id = "906", EmployeeId = "1006", Designation = "Software Engineer V", Age = 5, Experience = 2, Name = "Abdul Waris 1.0", Salary = 10000 }
+//};
+//object response = await sqlApiHandler.ExecuteStoredProcedureAsync("HR", "Employees", parameters[0].Designation, "AddItem", parameters );
+//Console.WriteLine(response.ToString());
+
 Console.WriteLine("Run Successfully");

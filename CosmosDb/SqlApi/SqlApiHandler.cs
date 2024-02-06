@@ -83,5 +83,13 @@ namespace CosmosDb.SqlApi
             Container container = database.GetContainer(containerName);
             await container.ReplaceItemAsync<T>(item, id, new PartitionKey(partitionKey));
         }
+
+        public async Task<object> ExecuteStoredProcedureAsync(string databaseName, string containerName, string partitionKey, string storedProcedureName, dynamic[] parameters)
+        {
+            Database database = _client.GetDatabase(databaseName);
+            Container container = database.GetContainer(containerName);
+            object response = await container.Scripts.ExecuteStoredProcedureAsync<object>(storedProcedureName, new PartitionKey(partitionKey), parameters);
+            return response;
+        }
     }
 }
